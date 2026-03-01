@@ -10,7 +10,7 @@ Szczegółowe instrukcje do zadań przerabianych na zajęciach zostaną podane p
 
 Na zajęciach stworzyliśmy diagramy klas opisujące fragmenty systemów informatycznych. W ramach zadania domowego należy wykonać poniższe polecenia, wykorzystujac stworzony wcześniej diagram. 
 
-** Uwaga: na zajęciach pracowaliśmy w grupach, ale zadanie domowe każdy wykonuje indywidualnie i niezależnie od innych! **
+**Uwaga: na zajęciach pracowaliśmy w grupach, ale zadanie domowe każdy wykonuje indywidualnie i niezależnie od innych!**
 
 Do wykonania zadań będziesz potrzebować środowiska IntelliJ z zainstalowanym JDK.
 
