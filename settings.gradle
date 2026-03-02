@@ -1,0 +1,4 @@
+rootProject.name = 'Pracownia-Projektowa'
+
+// Tu dopisuj każdy kolejny folder, który stworzysz
+include 'Lab2'

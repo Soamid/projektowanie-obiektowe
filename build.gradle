@@ -1,0 +1,13 @@
+subprojects {
+    apply plugin: 'java' // Wszystkie podfoldery to projekty Java
+
+    repositories {
+        mavenCentral() // Skąd brać biblioteki (jeśli będziesz ich potrzebować)
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17) // Ustaw swoją wersję Javy
+        }
+    }
+}
