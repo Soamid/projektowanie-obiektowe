@@ -30,6 +30,11 @@ public class StaraNokia implements IPhone {
     }
 
     @Override
+    public void backupPhotos() {
+        throw new UnsupportedOperationException("XD no na pewno to zadziała tutaj");
+    }
+
+    @Override
     public void charge(String chargerType) {
         if (chargerType.equals("Pin")) {
             System.out.println("Ładowanie grubym bolcem...");

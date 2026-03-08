@@ -6,5 +6,8 @@ public interface IPhone {
     void takePhoto();
     void connectTo5G();
     void browseInternet();
+
+    void backupPhotos();
+
     void charge(String chargerType);
 }

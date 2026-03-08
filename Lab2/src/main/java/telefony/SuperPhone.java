@@ -10,8 +10,6 @@ import kamery.WymiaryZdjecia;
 
 class SuperPhone implements IPhone {
 
-    //Normalny telefon faktycznie miałby te kamery w sobie
-    //Ale to nie jest prawdziwy świat
     private PrzedniaKamera przedniaKamera;
     private SzerokokatnaKamera szerokokatnaKamera;
     private TylniaKamera tylniaKamera;
@@ -135,19 +133,13 @@ class SuperPhone implements IPhone {
         System.out.println("Otwieram przeglądarkę...");
     }
 
-    //moze tu ewentualnie jakies D solidniejsze wrzucic???
-//    @Override
-//    public void charge(String chargerType) {
-//        if (chargerType.equals("USB-C")) {
-//            System.out.println("Ładowanie szybkie USB-C.");
-//        } else if (chargerType.equals("Lightning")) {
-//            System.out.println("Ładowanie Apple Lightning.");
-//        } else if (chargerType.equals("Wireless")) {
-//            System.out.println("Ładowanie indukcyjne.");
-//        } else {
-//            System.out.println("Nieznana ładowarka!");
-//        }
-//    }
+    @Override
+    public void backupPhotos() {
+        GoogleDriveStorage googleStorage = new GoogleDriveStorage();
+
+        System.out.println("Przygotowuję backup...");
+        googleStorage.uploadAllPhotos();
+    }
     @Override
     public void charge(String chargerType){
         //

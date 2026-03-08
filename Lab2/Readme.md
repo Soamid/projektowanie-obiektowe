@@ -26,8 +26,9 @@ Każda zasada z SOLIDa jest złamana przynajmniej raz - wystarczy naprawić każ
 Niemniej oczywiście, jeśli zauważysz złamianie zasady w innym miejscu, gorąco zachęcam aby tą część kodu również poprawić.
 
 ### Zadanie 2
+Jest taka metoda co zapisuje zdjęcia do chmury - dodaj nowego clouda do którego możnaby zapisać zdjęcia. Złamianie której zasady uniemożliwiło łatwe dodanie nowego clouda?
 
-Zaproponuj jakieś rozszerzenie istniejącego systemu. Zwróć uwagę na to, aby sposób jego realizacji był zgodny z którąś zasada z SOLID.
+Dodatkowo zaproponuj jakieś rozszerzenie istniejącego systemu. Zwróć uwagę na to, aby sposób jego realizacji był zgodny z którąś zasada z SOLID.
 
 Może być to przykładowo dodanie nowej funkcjonalności do telefonu (ale dłuższej niż 5 linii), wzbogacenie telefonu o interakcję z innym urządzeniem/klasą (np. nadajnik GPS), lub wprowadzenie nowego telefonu.
 
