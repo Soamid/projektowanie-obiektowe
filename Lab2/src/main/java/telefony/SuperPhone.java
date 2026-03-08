@@ -16,7 +16,7 @@ class SuperPhone implements IPhone {
     private SzerokokatnaKamera szerokokatnaKamera;
     private TylniaKamera tylniaKamera;
 
-    //bardzo ważny stan telefonu którego ewidentnie nie da się pozbyć
+    //być może nie aż tak potrzebny stan telefonu
     private String aktywnyTrybAparatu = "none";
 
     //SEKCJA Z DZWONIENIEM I SMSAMI
@@ -84,23 +84,28 @@ class SuperPhone implements IPhone {
     }
 
     //SEKCJA Z KAMERAMI
-    public void setCamera(String type) {
+    public void setCamera(String type) throws IllegalArgumentException {
         if (type.equalsIgnoreCase("SONY")) {
             this.przedniaKamera = new PrzedniaKamera();
             this.tylniaKamera = null;
             this.szerokokatnaKamera = null;
             this.aktywnyTrybAparatu = "SONY";
+            return;
         } else if (type.equalsIgnoreCase("SAMSUNG")) {
             this.tylniaKamera = new TylniaKamera();
             this.przedniaKamera = null;
             this.szerokokatnaKamera = null;
             this.aktywnyTrybAparatu = "SAMSUNG";
+            return;
         } else if (type.equalsIgnoreCase("PINHOLE")) {
             this.szerokokatnaKamera = new SzerokokatnaKamera();
             this.przedniaKamera = null;
             this.tylniaKamera = null;
             this.aktywnyTrybAparatu = "PINHOLE";
+            return;
         }
+
+        throw new IllegalArgumentException("Nieznany typ kamery: " + type);
     }
 
     @Override

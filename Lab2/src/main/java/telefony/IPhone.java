@@ -6,5 +6,5 @@ public interface IPhone {
     void takePhoto();
     void connectTo5G();
     void browseInternet();
-    void charge(String chargerType); // Łamie OCP
+    void charge(String chargerType);
 }
