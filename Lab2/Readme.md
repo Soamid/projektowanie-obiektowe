@@ -34,6 +34,9 @@ Może być to przykładowo dodanie nowej funkcjonalności do telefonu (ale dłu�
 
 Chciałbym aby przy oddawaniu laba, odpowiedź z tego zadanie wyglądała jakoś tak: "Wprowadziłem/am nową funkcjonalność X, została zreazlizowana z dodaniem tej i tej klasy, w celu zachowania zasady Y".
 
-[Prezentacja z zajęć](https://www.canva.com/design/DAHDXA-8S_o/8jr39VzRfcMIRkV0TwWMPA/view?utm_content=DAHDXA-8S_o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hbabf327b6a)
+### Materiały
+
+ - [Prezentacja z zajęć](https://www.canva.com/design/DAHDXA-8S_o/8jr39VzRfcMIRkV0TwWMPA/view?utm_content=DAHDXA-8S_o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hbabf327b6a)
+ - [Prezentacja z Programowania Obiektowego](https://www.canva.com/design/DAGbt85OPV0/RjGm17Fnxssa2XNvDme4yA/view?utm_content=DAGbt85OPV0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he2f1c89ef7)
 
 Powodzenia!
