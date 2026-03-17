@@ -14,6 +14,8 @@ public class SuperPhone implements IPhone {
     //być może nie aż tak potrzebny stan telefonu
     private String activeCamera = "none";
 
+    //to w sumie dodalem na ostatnia chwile
+    //jestem ciekaw co z tym zrobicie xD
     public int batteryPercentage;
 
     public SuperPhone() {
