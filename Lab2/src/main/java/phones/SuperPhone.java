@@ -16,6 +16,9 @@ public class SuperPhone implements IPhone {
 
     //to w sumie dodalem na ostatnia chwile
     //jestem ciekaw co z tym zrobicie xD
+    //warto wgl rozkminic czy to jak to zostalo zaimplementowane wgl ma sens
+    //np. czy to telefon powinien wiedzieć ile jest ładowany? Czy jednak coś innego winno to wiedzieć?
+    //public wedle zamyslu programisty (niezbyt rozgarnietego jak widac) jest dlatego ze baterie wyswietla sie na telefonie
     public int batteryPercentage;
 
     public SuperPhone() {

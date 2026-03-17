@@ -51,7 +51,7 @@ public class StaraNokia implements IPhone {
         if (chargerType.equals("Pin")) {
             this.batteryPercentage += 30;
         } else if (chargerType.equals("Thin-Pin")) {
-            this.batteryPercentage += 15;
+            System.out.println("A tez nie wspieram");
         } else {
             System.out.println("Nieobsługiwana ładowarka!");
         }
