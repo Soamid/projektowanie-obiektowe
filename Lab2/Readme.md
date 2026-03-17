@@ -39,6 +39,15 @@ Może być to przykładowo dodanie nowej funkcjonalności do telefonu (ale dłu�
 
 Chciałbym, aby przy oddawaniu laba odpowiedź z tego zadania wyglądała tak: "Wprowadziłem/am nową funkcjonalność X, została zrealizowana z dodaniem tej i tej klasy, w celu zachowania zasady Y".
 
+### Tipy typu "Zrób to za mnie IDE"
+
+IDE to z reguły dość potężne narzędzia. Posiadają wiele wbudowanych funkcji upraszczających robotę. Oto pare z nich w jedynej uczciwej cenie (za darmo):
+ - Rename (aka zmiana nazwy) czegokolwiek - zmienia nazwę danej rzeczy WSZĘDZIE (klasa, użycia) + jakiś zależności (np. nazwa zmiennej typu klasy której nazwe zmieniamy) - **PPM -> Rename, Shift+F6**
+ - Użycia klasy/metody -  **klik "Find Usages" (obok klasy) albo Alt+F7**
+ - Tworzenie sygnatury metody która nie istnieje - np. najpierw koncepcyjnie w jakieś big metodzie piszemy sobie co musi być wykonane (jako nazwy metod), a potem pyk, metody się same pojawiają z odpowiednim wyjściem i wejściem - **Kursor na metode/ALT+ENTER -> "Create Method" lub "Created Abstract Method**
+ - Ekstrakcja interfejsu - robi interfejs na podstawie istniejącej klasy i jej metod - **PPM -> Refactor -> Extract Interface**
+ - Przenoszenie metod do innej (np. nowej klasy) - działa zarówno dla statycznych metod (do nowej klasy), jak i instancyjnych (do klasy używanej w jednym z atrybutów) - **PPM -> Refactor -> Move members / Move instance method** 
+ - Przenoszenie metod do interfejsu - jednym kliknięciem wrzucamy metody z danej klasy do interfejsu, który realizujemy - **PPM -> Refactor -> Pull Members Up** 
 ### Materiały
 
  - [Prezentacja z zajęć](https://www.canva.com/design/DAHDXA-8S_o/8jr39VzRfcMIRkV0TwWMPA/view?utm_content=DAHDXA-8S_o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hbabf327b6a)
