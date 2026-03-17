@@ -1,4 +1,4 @@
-﻿package telefony;
+package phones;
 
 public interface IPhone {
     void call(String number);

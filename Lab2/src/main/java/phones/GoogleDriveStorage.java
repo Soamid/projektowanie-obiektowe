@@ -1,4 +1,4 @@
-﻿package telefony;
+package phones;
 
 public class GoogleDriveStorage {
     public void uploadAllPhotos() {

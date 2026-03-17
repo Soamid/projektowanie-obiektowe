@@ -1,12 +1,9 @@
-﻿package telefony; /**
- * INTERFEJS - Łamie ISP (Interface Segregation Principle)
- * Jest zbyt "tłusty". Każdy telefon (nawet stary model) musiałby to implementować.
- */
+package phones;
 
-import kamery.FrontCamera;
-import kamery.WideAngleCamera;
-import kamery.BackCamera;
-import kamery.WymiaryZdjecia;
+import cameras.FrontCamera;
+import cameras.PhotoSize;
+import cameras.WideAngleCamera;
+import cameras.BackCamera;
 
 public class SuperPhone implements IPhone {
 
@@ -130,13 +127,13 @@ public class SuperPhone implements IPhone {
         if (batteryPercentage > 12) {
             if (activeCamera.equals("PRZEDNIA") && frontCamera != null) {
                 //tu sa wymiary w centymetrach (bo tak)
-                frontCamera.zrobSelfie(100, 30);
+                frontCamera.makeSelfie(100, 30);
             } else if (activeCamera.equals("TYLNIA") && backCamera != null) {
                 //a tu w pixelach
-                backCamera.uchwyćMoment(1920, 1080);
+                backCamera.captureMoment(1920, 1080);
             } else if (activeCamera.equals("SZEROKOKATNA") && wideAngleCamera != null) {
                 //a tu se wgl zrobil programista wlasny obiekt
-                wideAngleCamera.pstryknijPanorame(new WymiaryZdjecia(1920, 1080));
+                wideAngleCamera.performOperationCommonlyKnownAsMakingPhoto(new PhotoSize(1920, 1080));
             } else {
                 System.out.println("BŁĄD KRYTYCZNY: Nie wybrano aparatu lub sprzęt nie jest zainicjalizowany!");
                 return;

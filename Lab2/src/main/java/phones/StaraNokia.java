@@ -1,4 +1,4 @@
-﻿package telefony;
+package phones;
 
 //Moze i nie umie za dużo
 //Ale się stara

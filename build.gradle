@@ -7,7 +7,7 @@ subprojects {
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(17) // Ustaw swoją wersję Javy
+            languageVersion = JavaLanguageVersion.of(25) // Ustaw swoją wersję Javy
         }
     }
 }
