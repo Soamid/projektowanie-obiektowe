@@ -16,6 +16,8 @@ Do tego nawet nie wiem, czy działa — ale tym się nie przejmujemy na razie. T
 
 Zapoznaj się z dostarczonym kodem i poczyń odpowiedni refactor, tak aby kod spełniał zasady SOLID i nie łamał innych dobrych praktyk programowania.
 
+Dla ułatwienia zadanie, dobrym pomysłem może byc wygenerowanie sobie diagramu klas z opcją "Show Dependencies"
+
 **Bardzo ważne: Notuj sobie gdzieś zmiany i powód tych zmian - przykładowo: Wprowadziłem dodatkową klasę X, ponieważ klasa Y miałą więcej niż jedną odpowiedzialność.**
 Istnieje spora szansa że będę z tego pytał przy oddawaniu laba
 
