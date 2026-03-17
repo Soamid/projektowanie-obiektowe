@@ -47,7 +47,10 @@ IDE to z reguły dość potężne narzędzia. Posiadają wiele wbudowanych funkc
  - Tworzenie sygnatury metody która nie istnieje - np. najpierw koncepcyjnie w jakieś big metodzie piszemy sobie co musi być wykonane (jako nazwy metod), a potem pyk, metody się same pojawiają z odpowiednim wyjściem i wejściem - **Kursor na metode/ALT+ENTER -> "Create Method" lub "Created Abstract Method**
  - Ekstrakcja interfejsu - robi interfejs na podstawie istniejącej klasy i jej metod - **PPM -> Refactor -> Extract Interface**
  - Przenoszenie metod do innej (np. nowej klasy) - działa zarówno dla statycznych metod (do nowej klasy), jak i instancyjnych (do klasy używanej w jednym z atrybutów) - **PPM -> Refactor -> Move members / Move instance method** 
- - Przenoszenie metod do interfejsu - jednym kliknięciem wrzucamy metody z danej klasy do interfejsu, który realizujemy - **PPM -> Refactor -> Pull Members Up** 
+ - Przenoszenie metod do interfejsu - jednym kliknięciem wrzucamy metody z danej klasy do interfejsu, który realizujemy - **PPM -> Refactor -> Pull Members Up**
+
+Więcej przydatnych skrótów w IntelliJ w [poradniku z przedmiotu Programowanie Obiektowe](https://github.com/Soamid/obiektowe-lab/blob/master/guides/IntelliJ%20-%20porady%20i%20konfiguracja.md)
+.
 ### Materiały
 
  - [Prezentacja z zajęć](https://www.canva.com/design/DAHDXA-8S_o/8jr39VzRfcMIRkV0TwWMPA/view?utm_content=DAHDXA-8S_o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hbabf327b6a)
