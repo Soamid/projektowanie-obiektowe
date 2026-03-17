@@ -3,19 +3,28 @@
  * Jest zbyt "tłusty". Każdy telefon (nawet stary model) musiałby to implementować.
  */
 
-import kamery.PrzedniaKamera;
-import kamery.SzerokokatnaKamera;
-import kamery.TylniaKamera;
+import kamery.FrontCamera;
+import kamery.WideAngleCamera;
+import kamery.BackCamera;
 import kamery.WymiaryZdjecia;
 
-class SuperPhone implements IPhone {
+public class SuperPhone implements IPhone {
 
-    private PrzedniaKamera przedniaKamera;
-    private SzerokokatnaKamera szerokokatnaKamera;
-    private TylniaKamera tylniaKamera;
+    private FrontCamera frontCamera;
+    private WideAngleCamera wideAngleCamera;
+    private BackCamera backCamera;
 
     //być może nie aż tak potrzebny stan telefonu
-    private String aktywnyTrybAparatu = "none";
+    private String activeCamera = "none";
+
+    public int batteryPercentage;
+
+    public SuperPhone() {
+        this.batteryPercentage = 100; //domyślnie pełna bateria
+        this.frontCamera = new FrontCamera();
+        this.backCamera = new BackCamera();
+        this.wideAngleCamera = new WideAngleCamera();
+    }
 
     //SEKCJA Z DZWONIENIEM I SMSAMI
     @Override
@@ -84,22 +93,22 @@ class SuperPhone implements IPhone {
     //SEKCJA Z KAMERAMI
     public void setCamera(String type) throws IllegalArgumentException {
         if (type.equalsIgnoreCase("SONY")) {
-            this.przedniaKamera = new PrzedniaKamera();
-            this.tylniaKamera = null;
-            this.szerokokatnaKamera = null;
-            this.aktywnyTrybAparatu = "SONY";
+            this.frontCamera = new FrontCamera();
+            this.backCamera = null;
+            this.wideAngleCamera = null;
+            this.activeCamera = "SONY";
             return;
         } else if (type.equalsIgnoreCase("SAMSUNG")) {
-            this.tylniaKamera = new TylniaKamera();
-            this.przedniaKamera = null;
-            this.szerokokatnaKamera = null;
-            this.aktywnyTrybAparatu = "SAMSUNG";
+            this.backCamera = new BackCamera();
+            this.frontCamera = null;
+            this.wideAngleCamera = null;
+            this.activeCamera = "SAMSUNG";
             return;
         } else if (type.equalsIgnoreCase("PINHOLE")) {
-            this.szerokokatnaKamera = new SzerokokatnaKamera();
-            this.przedniaKamera = null;
-            this.tylniaKamera = null;
-            this.aktywnyTrybAparatu = "PINHOLE";
+            this.wideAngleCamera = new WideAngleCamera();
+            this.frontCamera = null;
+            this.backCamera = null;
+            this.activeCamera = "PINHOLE";
             return;
         }
 
@@ -108,15 +117,15 @@ class SuperPhone implements IPhone {
 
     @Override
     public void takePhoto() {
-        if (aktywnyTrybAparatu.equals("PRZEDNIA") && przedniaKamera != null) {
+        if (activeCamera.equals("PRZEDNIA") && frontCamera != null) {
             //tu sa wymiary w centymetrach (bo tak)
-            przedniaKamera.zrobSelfie(100, 30);
-        } else if (aktywnyTrybAparatu.equals("TYLNIA") && tylniaKamera != null) {
+            frontCamera.zrobSelfie(100, 30);
+        } else if (activeCamera.equals("TYLNIA") && backCamera != null) {
             //a tu w pixelach
-            tylniaKamera.uchwyćMoment(1920, 1080);
-        } else if (aktywnyTrybAparatu.equals("SZEROKOKATNA") && szerokokatnaKamera != null) {
+            backCamera.uchwyćMoment(1920, 1080);
+        } else if (activeCamera.equals("SZEROKOKATNA") && wideAngleCamera != null) {
             //a tu se wgl zrobil programista wlasny obiekt
-            szerokokatnaKamera.pstryknijPanorame(new WymiaryZdjecia(1920, 1080));
+            wideAngleCamera.pstryknijPanorame(new WymiaryZdjecia(1920, 1080));
         } else {
             System.out.println("BŁĄD KRYTYCZNY: Nie wybrano aparatu lub sprzęt nie jest zainicjalizowany!");
             return;
@@ -142,6 +151,12 @@ class SuperPhone implements IPhone {
     }
     @Override
     public void charge(String chargerType){
-        //
+        if (chargerType.equals("Pin")) {
+            this.batteryPercentage += 10;
+        } else if (chargerType.equals("Thin-Pin")) {
+            this.batteryPercentage += 5;
+        } else {
+            System.out.println("Nieobsługiwana ładowarka!");
+        }
     }
 }

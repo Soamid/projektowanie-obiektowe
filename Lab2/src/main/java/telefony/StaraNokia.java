@@ -3,10 +3,17 @@
 //Moze i nie umie za dużo
 //Ale się stara
 public class StaraNokia implements IPhone {
+    public int batteryLevel = 100;
 
     @Override
     public void call(String number) {
-        System.out.println("Dzwonię z niezniszczalnej Nokii do: " + number);
+        if (batteryLevel > 5){
+            System.out.println("Dzwonię z niezniszczalnej Nokii do: " + number);
+            batteryLevel -= 5;
+        }
+        else {
+            System.out.println("Bateria jest za słaba, aby zadzwonić!");
+        }
     }
 
     @Override
@@ -37,9 +44,9 @@ public class StaraNokia implements IPhone {
     @Override
     public void charge(String chargerType) {
         if (chargerType.equals("Pin")) {
-            System.out.println("Ładowanie grubym bolcem...");
+            this.batteryLevel += 30;
         } else if (chargerType.equals("Thin-Pin")) {
-            System.out.println("Ładowanie cienkim bolcem...");
+            this.batteryLevel += 15;
         } else {
             System.out.println("Nieobsługiwana ładowarka!");
         }
