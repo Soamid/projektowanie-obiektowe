@@ -3,13 +3,13 @@
 //Moze i nie umie za dużo
 //Ale się stara
 public class StaraNokia implements IPhone {
-    public int batteryLevel = 100;
+    public int batteryPercentage = 100;
 
     @Override
     public void call(String number) {
-        if (batteryLevel > 5){
+        if (batteryPercentage > 5){
             System.out.println("Dzwonię z niezniszczalnej Nokii do: " + number);
-            batteryLevel -= 5;
+            batteryPercentage -= 5;
         }
         else {
             System.out.println("Bateria jest za słaba, aby zadzwonić!");
@@ -18,7 +18,12 @@ public class StaraNokia implements IPhone {
 
     @Override
     public void sendSms(String number, String message) {
-        System.out.println("Wysyłam SMS do " + number + ": " + message);
+        if (batteryPercentage > 3) {
+            System.out.println("Wysyłam SMS do " + number + ": " + message);
+            batteryPercentage -= 3;
+        } else {
+            System.out.println("Bateria jest za słaba, aby wysłać SMS!");
+        }
     }
 
     @Override
@@ -44,9 +49,9 @@ public class StaraNokia implements IPhone {
     @Override
     public void charge(String chargerType) {
         if (chargerType.equals("Pin")) {
-            this.batteryLevel += 30;
+            this.batteryPercentage += 30;
         } else if (chargerType.equals("Thin-Pin")) {
-            this.batteryLevel += 15;
+            this.batteryPercentage += 15;
         } else {
             System.out.println("Nieobsługiwana ładowarka!");
         }

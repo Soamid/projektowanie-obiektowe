@@ -29,65 +29,75 @@ public class SuperPhone implements IPhone {
     //SEKCJA Z DZWONIENIEM I SMSAMI
     @Override
     public void call(String number) {
-        //Sprawdzanie czy numer jest poprawny
-        if (number == null || !number.startsWith("+")) {
-            System.out.println("BŁĄD: Numer musi zaczynać się od '+'!");
-            return;
-        }
+        if (batteryPercentage > 8) {
+            //Sprawdzanie czy numer jest poprawny
+            if (number == null || !number.startsWith("+")) {
+                System.out.println("BŁĄD: Numer musi zaczynać się od '+'!");
+                return;
+            }
 
-        if (number.startsWith("+48")) { //Czy to polski numer
-            String digits = number.substring(3);
-            if (digits.length() != 9) { //walidacja dla polskiego numeru
-                System.out.println("BŁĄD: Polski numer musi mieć dokładnie 9 cyfr!");
+            if (number.startsWith("+48")) { //Czy to polski numer
+                String digits = number.substring(3);
+                if (digits.length() != 9) { //walidacja dla polskiego numeru
+                    System.out.println("BŁĄD: Polski numer musi mieć dokładnie 9 cyfr!");
+                    return;
+                }
+            } else if (number.startsWith("+49")) { //Czy to niemiecki numer
+                if (number.length() < 12 || number.length() > 15) { //Walidacja dla niemieckiego
+                    System.out.println("BŁĄD: Niemiecki numer musi mieć od 10 do 13 cyfr po kierunkowym!");
+                    return;
+                }
+                if (number.charAt(3) == '0') {
+                    System.out.println("BŁĄD: Niemiecki numer nie może mieć zera po kodzie kraju!");
+                    return;
+                }
+            } else {
+                System.out.println("BŁĄD: Nieobsługiwany kraj!");
                 return;
             }
-        } else if (number.startsWith("+49")) { //Czy to niemiecki numer
-            if (number.length() < 12 || number.length() > 15) { //Walidacja dla niemieckiego
-                System.out.println("BŁĄD: Niemiecki numer musi mieć od 10 do 13 cyfr po kierunkowym!");
-                return;
-            }
-            if (number.charAt(3) == '0') {
-                System.out.println("BŁĄD: Niemiecki numer nie może mieć zera po kodzie kraju!");
-                return;
-            }
+
+            System.out.println("Dzwonię do: " + number);
+            batteryPercentage -= 8;
         } else {
-            System.out.println("BŁĄD: Nieobsługiwany kraj!");
-            return;
+            System.out.println("BŁĄD: Bateria jest za słaba, aby dzwonić!");
         }
-
-        System.out.println("Dzwonię do: " + number);
     }
 
     @Override
     public void sendSms(String number, String message) {
-        //Copy paste kodu z wyżej
-        //nie ma co sie produkować za dużo
-        if (number == null || !number.startsWith("+")) {
-            System.out.println("BŁĄD: Numer musi zaczynać się od '+'!");
-            return;
-        }
+        if (batteryPercentage > 5) {
+            //Copy paste kodu z wyżej
+            //nie ma co sie produkować za dużo
+            if (number == null || !number.startsWith("+")) {
+                System.out.println("BŁĄD: Numer musi zaczynać się od '+'!");
+                return;
+            }
 
-        if (number.startsWith("+48")) {
-            String digits = number.substring(3);
-            if (digits.length() != 9) {
-                System.out.println("BŁĄD: Polski numer musi mieć dokładnie 9 cyfr!");
+            if (number.startsWith("+48")) {
+                String digits = number.substring(3);
+                if (digits.length() != 9) {
+                    System.out.println("BŁĄD: Polski numer musi mieć dokładnie 9 cyfr!");
+                    return;
+                }
+            } else if (number.startsWith("+49")) {
+                if (number.length() < 12 || number.length() > 15) {
+                    System.out.println("BŁĄD: Niemiecki numer musi mieć od 10 do 13 cyfr po kierunkowym!");
+                    return;
+                }
+                if (number.charAt(3) == '0') {
+                    System.out.println("BŁĄD: Niemiecki numer nie może mieć zera po kodzie kraju!");
+                    return;
+                }
+            } else {
+                System.out.println("BŁĄD: Nieobsługiwany kraj!");
                 return;
             }
-        } else if (number.startsWith("+49")) {
-            if (number.length() < 12 || number.length() > 15) {
-                System.out.println("BŁĄD: Niemiecki numer musi mieć od 10 do 13 cyfr po kierunkowym!");
-                return;
-            }
-            if (number.charAt(3) == '0') {
-                System.out.println("BŁĄD: Niemiecki numer nie może mieć zera po kodzie kraju!");
-                return;
-            }
+
+            System.out.println("Wysyłam SMS do " + number + ": " + message);
+            batteryPercentage -= 5;
         } else {
-            System.out.println("BŁĄD: Nieobsługiwany kraj!");
-            return;
+            System.out.println("BŁĄD: Bateria jest za słaba, aby wysłać SMS!");
         }
-
-        System.out.println("Wysyłam SMS do " + number + ": " + message);
     }
 
     //SEKCJA Z KAMERAMI
@@ -117,37 +127,57 @@ public class SuperPhone implements IPhone {
 
     @Override
     public void takePhoto() {
-        if (activeCamera.equals("PRZEDNIA") && frontCamera != null) {
-            //tu sa wymiary w centymetrach (bo tak)
-            frontCamera.zrobSelfie(100, 30);
-        } else if (activeCamera.equals("TYLNIA") && backCamera != null) {
-            //a tu w pixelach
-            backCamera.uchwyćMoment(1920, 1080);
-        } else if (activeCamera.equals("SZEROKOKATNA") && wideAngleCamera != null) {
-            //a tu se wgl zrobil programista wlasny obiekt
-            wideAngleCamera.pstryknijPanorame(new WymiaryZdjecia(1920, 1080));
+        if (batteryPercentage > 12) {
+            if (activeCamera.equals("PRZEDNIA") && frontCamera != null) {
+                //tu sa wymiary w centymetrach (bo tak)
+                frontCamera.zrobSelfie(100, 30);
+            } else if (activeCamera.equals("TYLNIA") && backCamera != null) {
+                //a tu w pixelach
+                backCamera.uchwyćMoment(1920, 1080);
+            } else if (activeCamera.equals("SZEROKOKATNA") && wideAngleCamera != null) {
+                //a tu se wgl zrobil programista wlasny obiekt
+                wideAngleCamera.pstryknijPanorame(new WymiaryZdjecia(1920, 1080));
+            } else {
+                System.out.println("BŁĄD KRYTYCZNY: Nie wybrano aparatu lub sprzęt nie jest zainicjalizowany!");
+                return;
+            }
+            batteryPercentage -= 12;
         } else {
-            System.out.println("BŁĄD KRYTYCZNY: Nie wybrano aparatu lub sprzęt nie jest zainicjalizowany!");
-            return;
+            System.out.println("BŁĄD: Bateria jest za słaba, aby zrobić zdjęcie!");
         }
     }
 
     @Override
     public void connectTo5G() {
-        System.out.println("Połączono z siecią 5G.");
+        if (batteryPercentage > 6) {
+            System.out.println("Połączono z siecią 5G.");
+            batteryPercentage -= 6;
+        } else {
+            System.out.println("BŁĄD: Bateria jest za słaba, aby połączyć się z 5G!");
+        }
     }
 
     @Override
     public void browseInternet() {
-        System.out.println("Otwieram przeglądarkę...");
+        if (batteryPercentage > 10) {
+            System.out.println("Otwieram przeglądarkę...");
+            batteryPercentage -= 10;
+        } else {
+            System.out.println("BŁĄD: Bateria jest za słaba, aby przeglądać internet!");
+        }
     }
 
     @Override
     public void backupPhotos() {
-        GoogleDriveStorage googleStorage = new GoogleDriveStorage();
+        if (batteryPercentage > 15) {
+            GoogleDriveStorage googleStorage = new GoogleDriveStorage();
 
-        System.out.println("Przygotowuję backup...");
-        googleStorage.uploadAllPhotos();
+            System.out.println("Przygotowuję backup...");
+            googleStorage.uploadAllPhotos();
+            batteryPercentage -= 15;
+        } else {
+            System.out.println("BŁĄD: Bateria jest za słaba, aby zrobić backup!");
+        }
     }
     @Override
     public void charge(String chargerType){
