@@ -7,21 +7,38 @@ W tym semestrze będziemy pracować z wykorzystaniem **GitHub Classroom**. Każd
 ## Krok 1: Akceptacja zadania i klonowanie
 1. Kliknij w link do GitHub Classroom otrzymany od prowadzącego.
 2. Znajdź swoje imię i nazwisko na liście (lub dołącz do klasy, jeśli listy jeszcze nie ma).
-3. GitHub automatycznie utworzy Twoje prywatne repozytorium o nazwie `laboratoria-2026-TwojLogin`.
-4. Na maila dodatkowo dostaniesz zaproszenie do organizacji - zaakceptuj je.
-5. Sklonuj swoje nowe repozytorium na dysk komputera:
+3. GitHub automatycznie utworzy Twoje prywatne repozytorium o nazwie `repo-matka-TwojLogin`. Prawdodpobonie na końcu pojawi się info o błędzie - zignoruj
+4. Na githubie po wejściu `profil` -> `organizacje` powinna ci się wyświetlić organizacja **repo-matka-nick** - kliknij i zaakceptuj
+4. Sklonuj swoje nowe repozytorium na dysk komputera:
    ```bash
-   git clone https://github.com/NASZA-ORGANIZACJA/laboratoria-2026-TwojLogin.git
-   cd laboratoria-2026-TwojLogin
+   git clone https://github.com/NASZA-ORGANIZACJA/repo-matka-TwojLogin.git
+   cd repo-matka-TwojLogin
    ```
 
 ---
 
+Tutaj potencjalnie mogą pojawić się problamy z autentykacją - bo repo jest prywatne i microsoft podobno tak fantastycznie poczarował że nie da się po prostu clona zrobić.
+
+Tu macie poradnik jak sobie z tym poradzić  - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+
 ## Krok 2: Konfiguracja synchronizacji (UPSTREAM) – TYLKO RAZ
-Abyś mógł pobierać nowe zadania, które będę wrzucał do mojego repozytorium, musisz dodać je jako tzw. **upstream** (źródło). Wykonaj tę komendę wewnątrz folderu z projektem:
+
+Tu chodzi o to żebyście sobie pobierali zmiany/nowe laby z mojego repo.
+
+Są dwie opcje
+
+### Przez github
+Na swoim repo klikacie przycisk "Sync fork" - reszta dzieje się sama
+
+
+### Przez terminal
+
+Tutaj trzeba pare kroczków
+1. Skopiuj link do repa matki (SSH lub Http jak chcecie)
+2. Ustaw to repo jako **upstream**
 
 ```bash
-git remote add upstream https://github.com/TWOJ-PROFIL/TWOJE-REPO-ZRODLOWE.git
+git remote add upstream https://github.com/AGH-Projektowanie-Obiektowe/klasaaaaa_2026-repo_matka-projektowanie-obiektowe.git
 ```
 
 *Teraz Twoje repozytorium ma dwa połączenia:*
@@ -31,7 +48,7 @@ git remote add upstream https://github.com/TWOJ-PROFIL/TWOJE-REPO-ZRODLOWE.git
 ---
 
 ## Krok 3: Cotygodniowa aktualizacja (Pobieranie zadań)
-Gdy ogłoszę, że nowe laboratorium (np. `lab2`) jest dostępne, wykonaj poniższe komendy, aby pobrać je do siebie:
+Żeby na swoim prywatnym repo miec zmiany z repa matki (czyli nowego laba) to trzeba spullowac zmiany z repa matki.
 
 ```bash
 # 1. Pobierz zmiany ze źródła
@@ -40,12 +57,12 @@ git pull upstream main
 # 2. Wyślij aktualizację do swojego prywatnego repo na GitHubie
 git push origin main
 ```
-*Twoje dotychczasowe rozwiązania w folderze `lab1` nie zostaną nadpisane – Git automatycznie "doklei" nowy folder `lab2`.*
+*Twoje dotychczasowe rozwiązania w folderze `lab1` nie zostaną nadpisane – Git automatycznie "doklei" nowy folder `lab2`. (a przynajmniej taka mam nadzieje xd)*
 
 ---
 
 ## Krok 4: Praca nad zadaniem i oddawanie (Pull Request)
-Pracujemy na tzw. **branchach** (gałęziach). To profesjonalny sposób na rozwijanie kodu.
+Zmiany mają byc robione na oddzielnym branchu - tak żeby można było łatwo utworzyc Pull Requesta do waszego maina.
 
 1. **Stwórz nową gałąź dla danego laboratorium:**
    ```bash
@@ -64,11 +81,12 @@ Pracujemy na tzw. **branchach** (gałęziach). To profesjonalny sposób na rozwi
 5. **Otwórz Pull Request (PR):**
    Wejdź na stronę swojego repozytorium na GitHubie. Zobaczysz żółty pasek z przyciskiem **"Compare & pull request"**. Kliknij go i stwórz PR. 
 
-**To właśnie w tym Pull Requestcie będę sprawdzał Twój kod i zostawiał uwagi.**
+**Na tym Pull Requescie odbędzie się tzw. Code Review - czyli będę pisał komentarze do kodu itp.**
 
 ---
 
 ## Krótka ściąga komend:
+Jak ktoś używa jakiegoś GUI do gita to go to totalnie nie interesuje, ale jak ktoś lubi z terminala:
 * `git status` – sprawdź, co zmieniłeś.
 * `git pull upstream main` – pobierz nowe laby od prowadzącego.
 * `git push origin main` – wyślij wszystko do swojego repo.
